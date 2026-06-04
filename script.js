@@ -16,6 +16,14 @@ if (cursor && ring) {
     let ringX = 0;
     let ringY = 0;
 
+    cursor.style.display = "none";
+    ring.style.display = "none";
+
+    document.addEventListener("mousemove", () => {
+        cursor.style.display = "block";
+        ring.style.display = "block";
+    }, { once: true });
+
     document.addEventListener("mousemove", (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
@@ -46,10 +54,10 @@ if (cursor && ring) {
 
     hoverElements.forEach((item) => {
         item.addEventListener("mouseenter", () => {
-            cursor.style.transform = "translate(-50%, -50%) scale(3)";
+            cursor.style.transform = "translate(-50%, -50%) scale(1)";
             cursor.style.background = "#56CCF2";
 
-            ring.style.transform = "translate(-50%, -50%) scale(2)";
+            ring.style.transform = "translate(-50%, -50%) scale(2.5)";
             ring.style.borderColor = "#56CCF2";
             ring.style.opacity = "0.8";
         });
